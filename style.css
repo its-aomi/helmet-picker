@@ -4,7 +4,7 @@ body {
 }
 
 .container {
-    width: 900px;
+    width: 1200px;
     margin: 0 auto;
 }
 
@@ -158,4 +158,11 @@ margin-top: 20px; /* Adjust margin as needed */
 
 .button-container > * {
 margin: 5px; /* Adjust margin as needed */
+}
+
+.right-image{
+    width: 55px;
+    margin-left: 195px;
+    margin-top: 25px;
+    transform: rotate(15deg);
 }

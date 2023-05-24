@@ -69,6 +69,7 @@ rightSidebarImages.forEach(function(image) {
         previewImage.classList.add("preview-image");
         previewImage.classList.add("right-image");
         previewContainer.insertBefore(previewImage, previewContainer.firstChild);
+
     });
 });
 
@@ -155,3 +156,4 @@ document.getElementById("btn-Convert-Html2Image").addEventListener("click", func
     anchorTag.click();
   });
 });
+
