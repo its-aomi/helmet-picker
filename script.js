@@ -24,29 +24,34 @@ for (i = 0; i < accordions.length; i++) {
 var leftSidebarImages = document.querySelectorAll(".left-sidebar .grid img");
 var rightSidebarImages = document.querySelectorAll(".right-sidebar .grid img");
 
-leftSidebarImages.forEach(function(image) {
-    image.addEventListener("click", function() {
-        var previewImage = document.createElement("img");
+leftSidebarImages.forEach(function (image) {
+    image.addEventListener("click", function () {
+      var previewImage = document.querySelector(".preview-container .left-image");
+  
+      // Remove previously added right sidebar image
+      var previousRightImage = document.querySelector(".preview-container .right-image");
+      if (previousRightImage) {
+        previousRightImage.remove();
+      }
+  
+      // Remove previously added custom image
+      var previousCustomImage = document.querySelector(".preview-container .custom-image");
+      if (previousCustomImage) {
+        previousCustomImage.remove();
+      }
+  
+      if (previewImage) {
         previewImage.src = this.src;
-
-        // Remove previously added left sidebar image
-        var previousLeftImage = document.querySelector(".preview-container .left-image");
-        if (previousLeftImage) {
-            previousLeftImage.remove();
-        }
-
-        // Remove previously added custom image
-        var previousCustomImage = document.querySelector(".preview-container .custom-image");
-        if (previousCustomImage) {
-            previousCustomImage.remove();
-        }
-
-        // Add the new left sidebar image
+      } else {
+        previewImage = document.createElement("img");
+        previewImage.src = this.src;
         previewImage.classList.add("preview-image");
         previewImage.classList.add("left-image");
         previewContainer.appendChild(previewImage);
+      }
     });
-});
+  });
+  
 
 rightSidebarImages.forEach(function(image) {
     image.addEventListener("click", function() {
@@ -124,23 +129,7 @@ imageOptions.forEach(function(option) {
         image.src = select.value;
     });
     
-    // Add the selected image to the preview container when clicked
-    image.addEventListener("click", function() {
-        var previewImage = document.createElement("img");
-        previewImage.src = image.src;
-        
-        
-        // Remove previously added right sidebar image
-        var previousRightImage = document.querySelector(".preview-container .right-image");
-        if (previousRightImage) {
-            previousRightImage.remove();
-        }
-        
-        // Add the new image to the preview container
-        previewImage.classList.add("preview-image");
-        previewImage.classList.add("right-image");
-        previewContainer.insertBefore(previewImage, previewContainer.firstChild);
-    });
+
 });
 
 
